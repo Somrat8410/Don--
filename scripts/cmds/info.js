@@ -16,22 +16,26 @@ module.exports = {
     const time = new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' });
 
     const profile = `
-『 𝗔𝗠𝗜𝗧 𝗠𝗔𝗫 ⚡ 』
+♡ ∩_∩
+（„• ֊ •„)♡
+╭─∪∪────────────⟡
+│   𝙸𝙽𝙵𝙾
+├───────────────⟡
 
-• Name: Amit Max ⚡  
-• Class: Inter 1st  
-• Group: Accounting  
-• Gender: Male  
-• DOB: 18-05-2006  
-• Religion: Sanatan  
-• Blood: AB+  
-• Height: 5.5 ft  
-• Location: Khoksa, Kushtia  
-• Hobby: Flirting  
-• Status: Single  
-• FB: fb.com/share/1564YX2VyT/  
-• IG: instagram.com/amitmax44  
-• Email: maxamit279@gmail.com  
+│ Name: Somrat Ahmed 
+│ Class: Inter 1st  
+│ Group: Accounting  
+│ Gender: Male  
+│ DOB: 25-01-2006  
+│ Religion: Sanatan  
+│ Blood: AB+  
+│ Height: 5.5 ft  
+│ Location: Chuadanga, Alomdanga  
+│ Hobby: Flirting  
+│ Status: Single  
+│ FB: https://www.facebook.com/somrat.3.2025
+│ IG: instagram.com/somrat  
+│ Email: Somrat8410@gamil.com 
 
 ⏰ Time: ${time}`;
 
