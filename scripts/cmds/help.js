@@ -31,7 +31,7 @@ module.exports = {
 
     // 📚 Help for all categories
     if (!rawInput) {
-      let msg = "╔══════ BOT HELP MENU ══════╗\n\n";
+      let msg = "╔═══ BOT HELP MENU ═══╗\n\n";
       for (const category of Object.keys(categories).sort()) {
         msg += `┍━━━[ ${category} ]\n┋`;
 
