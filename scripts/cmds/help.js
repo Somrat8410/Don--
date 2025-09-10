@@ -31,7 +31,7 @@ module.exports = {
 
     // 📚 Help for all categories
     if (!rawInput) {
-      let msg = "╔═══ BOT HELP MENU ═══╗\n\n";
+      let msg = "╔═══ 𝐇𝐄𝐋𝐏 𝐌𝐄𝐍𝐔 ═══╗\n\n";
       for (const category of Object.keys(categories).sort()) {
         msg += `┍━━━[ ${category} ]\n┋`;
 
@@ -44,9 +44,9 @@ module.exports = {
         msg += "\n┕━━━━━━━━━━━━◊\n";
       }
 
-      msg += `Total commands: ${commands.size}\n`;
-      msg += `Prefix: ${prefix}\n`;
-      msg += `Owner: set your name`;
+      msg += `🌐 𝚃𝚘𝚝𝚊𝚕 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜: ${commands.size}\n`;
+      msg += `📌 𝙿𝚛𝚎𝚏𝚒𝚡: ${prefix}\n`;
+      msg += `👑 𝙾𝚠𝚗𝚎𝚛: set your name`;
 
       const sent = await message.reply(msg);
       setTimeout(() => message.unsend(sent.messageID), 120000);
