@@ -45,8 +45,8 @@ module.exports = {
       }
 
       msg += `🌐 𝚃𝚘𝚝𝚊𝚕 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜: ${commands.size}\n`;
-      msg += `📌 𝙿𝚛𝚎𝚏𝚒𝚡: ${prefix}\n`;
-      msg += `👑 𝙾𝚠𝚗𝚎𝚛: set your name`;
+      msg += `📌 𝙿𝚛𝚎𝚏𝚒𝚡:【${prefix}】\n`;
+      msg += `👑 𝙾𝚠𝚗𝚎𝚛: 𝚂𝚘𝚖𝚛𝚊𝚝_🐱💀`;
 
       const sent = await message.reply(msg);
       setTimeout(() => message.unsend(sent.messageID), 120000);
