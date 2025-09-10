@@ -29,7 +29,7 @@ module.exports = {
 				const formattedList = filteredList.map((group, index) =>
 					`${index + 1}. ${group.threadName} (${group.participantIDs.length} members)`
 				);
-				const message = `✨ Groups List ✨\n\n${formattedList.join('\n')}\n\n🦋 Reply with the correct group number to approve!\n\n💪🏻 Max Group Size: 250`;
+				const message = `✨ Groups List ✨\n\n${formattedList.join('\n')}\n\n🦋 Reply with the correct group number to approve!\n\n💪🏻Somrat Group Size: 250`;
 
 				api.sendMessage(message, event.threadID, (err, info) => {
 					if (err) return console.error(err);
