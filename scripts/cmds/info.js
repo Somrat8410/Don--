@@ -23,16 +23,18 @@ module.exports = {
 ├───────────────⟡
 
 │ Name: Somrat Ahmed 
+
 │ Class: Inter 1st  
 │ Group: Accounting  
 │ Gender: Male  
 │ DOB: 25-01-2006  
-│ Religion: Sanatan  
+│ Religion: Islam 
 │ Blood: AB+  
 │ Height: 5.5 ft  
 │ Location: Chuadanga, Alomdanga  
 │ Hobby: Flirting  
-│ Status: Single  
+│ Status: Single 
+
 │ FB: https://www.facebook.com/somrat.3.2025
 │ IG: instagram.com/somrat  
 │ Email: Somrat8410@gamil.com 
