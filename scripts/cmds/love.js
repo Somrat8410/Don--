@@ -26,8 +26,6 @@ module.exports = {
     const msg = event.body.toLowerCase();
 
     const replies = {
-        hi: ["ʜᴇʏ ᴍɪss ʀᴜ ʟᴏsᴛ ɪɴ ᴍʏ ʜᴇᴀʀᴛ? 💖"],
-        hello: ["ʜᴇʏ ʟᴏᴠᴇ 😘, ᴀᴍɪ ᴛᴜᴍᴀʀ ᴅʀᴇᴀᴍ 💕"],
         "miss you": ["ᴛᴜᴍɪ ᴄʜᴀɴᴅ ɴᴀ, ᴛᴜᴍɪ ᴄʜᴀɴᴅᴇʀ ʀᴏꜱʜɴɪ ✨🥺"],
         "love you": [
             "ᴀᴍɪ ʜᴏɪᴛᴏ ᴄᴀʟᴇɴᴅᴇʀ ɴᴏɪ, ʙᴜᴛ ᴛᴜᴍɪ ᴀᴍᴀʀ ᴇᴠᴇʀʏ ᴅᴀʏ 😘",
