@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = __dirname + "/cache/war.json";
 
-const ADMIN_UID = "61577359509594"; 
+const ADMIN_UID = "100087277612935"; 
 
 module.exports = {
   config: {
