@@ -167,7 +167,7 @@ module.exports.onChat = async ({
             const arr = body.replace(/^\S+\s*/, "");
 
             const rawReplies = [
-  "ᴀᴍᴀʀ ꜱᴏɴᴀʀ ʙᴀɴɢʟᴀ ,ᴛᴀʀᴘᴏʀᴇ ʟᴀɪɴ ᴋɪ ?", "ᴇᴍʙɪ ᴋɪɴᴇ ᴅᴇᴏ ɴᴀ🥺", "ᴇᴋᴛᴀ ɢғ ᴋʜᴜɴᴊᴇ ᴅᴇᴏ ꜱᴏᴍʀᴀᴛ ᴋ🥺🥺", "ᴠᴀʟᴏ ᴋɪ ʜᴏɪʙᴀ ɴᴀ?", "ʙᴏʟᴇɴ ᴍʏᴀᴅᴀᴍ😌", "ʙʜᴜʟᴇ ᴊᴀᴏ ᴀᴍᴀᴋᴇ😞😞", "ᴀᴍɪ ʜᴏɪᴛᴏ ᴄᴀʟᴇɴᴅᴇʀ ɴᴏɪ, ʙᴜᴛ ᴛᴜᴍɪ ᴀᴍᴀʀ ᴇᴠᴇʀʏ ᴅᴀʏ😘", "kiss me jan😘🌷", "Bolo jaan ki korte panmr jonno"
+  "ᴀᴍᴀʀ ꜱᴏɴᴀʀ ʙᴀɴɢʟᴀ ,ᴛᴀʀᴘᴏʀᴇ ʟᴀɪɴ ᴋɪ ?", "ʙᴏᴡ ᴛᴜᴍɪ ᴋʜᴜᴛᴀɪ 😩🫶", "ᴇᴍʙɪ ᴋɪɴᴇ ᴅᴇᴏ ɴᴀ🥺", "ᴇᴋᴛᴀ ɢғ ᴋʜᴜɴᴊᴇ ᴅᴇᴏ ꜱᴏᴍʀᴀᴛ ᴋ🥺🥺", "ᴠᴀʟᴏ ᴋɪ ʜᴏɪʙᴀ ɴᴀ?", "ʙᴏʟᴇɴ ᴍʏᴀᴅᴀᴍ😌", "ʙʜᴜʟᴇ ᴊᴀᴏ ᴀᴍᴀᴋᴇ😞😞", "ᴀᴍɪ ʜᴏɪᴛᴏ ᴄᴀʟᴇɴᴅᴇʀ ɴᴏɪ, ʙᴜᴛ ᴛᴜᴍɪ ᴀᴍᴀʀ ᴇᴠᴇʀʏ ᴅᴀʏ😘", "kiss me jan😘🌷", "Bolo jaan ki korte pari tumr jonno"
 ];
 
             const selectedReply = rawReplies[Math.floor(Math.random() * rawReplies.length)];
