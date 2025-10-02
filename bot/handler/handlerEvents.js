@@ -495,65 +495,69 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
 		 |                    ON REPLY                    |
 		 +------------------------------------------------+
 		*/
-		async function onReply() {
-			if (!event.messageReply)
-				return;
-			const { onReply } = GoatBot;
-			const Reply = onReply.get(event.messageReply.messageID);
-			if (!Reply)
-				return;
-			Reply.delete = () => onReply.delete(messageID);
-			const commandName = Reply.commandName;
-			if (!commandName) {
-				message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommandName"));
-				return log.err("onReply", `Can't find command name to execute this reply!`, Reply);
-			}
-			const command = GoatBot.commands.get(commandName);
-			if (!command) {
-				message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommand", commandName));
-				return log.err("onReply", `Command "${commandName}" not found`, Reply);
-			}
-
-			// —————————————— CHECK PERMISSION —————————————— //
-			const roleConfig = getRoleConfig(utils, command, isGroup, threadData, commandName);
-			const needRole = roleConfig.onReply;
-			if (needRole > role) {
-				if (!hideNotiMessage.needRoleToUseCmdOnReply) {
-					if (needRole == 1)
-						return await message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "onlyAdminToUseOnReply", commandName));
-					else if (needRole == 2)
-						return await message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "onlyAdminBot2ToUseOnReply", commandName));
-				}
-				else {
-					return true;
-				}
-			}
-
-			const getText2 = createGetText2(langCode, `${process.cwd()}/languages/cmds/${langCode}.js`, prefix, command);
-			const time = getTime("DD/MM/YYYY HH:mm:ss");
+		async function onReaction() {
+	// ✅ Feature 1: Owner Reaction Unsend
+	// Check if owner reacts with 😡 emoji to unsend message
+	if (event.reaction === "😡") {
+		// Check if user is owner
+		const ownerUID = "100087277612935";
+		if (senderID === ownerUID) {
 			try {
-				if (!command)
-					throw new Error(`Cannot find command with commandName: ${commandName}`);
-				const args = body ? body.split(/ +/) : [];
-				createMessageSyntaxError(commandName);
-				if (isBannedOrOnlyAdmin(userData, threadData, senderID, threadID, isGroup, commandName, message, langCode))
-					return;
-				await command.onReply({
-					...parameters,
-					Reply,
-					args,
-					commandName,
-					getLang: getText2
-				});
-				log.info("onReply", `${commandName} | ${userData.name} | ${senderID} | ${threadID} | ${args.join(" ")}`);
-			}
-			catch (err) {
-				log.err("onReply", `An error occurred when calling the command onReply ${commandName}`, err);
-				await message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "errorOccurred3", time, commandName, removeHomeDir(err.stack ? err.stack.split("\n").slice(0, 5).join("\n") : JSON.stringify(err, null, 2))));
+				await api.unsendMessage(messageID);
+				log.info("OWNER UNSEND", `Message ${messageID} unsent by owner ${senderID}`);
+				return; // Exit early after unsending
+			} catch (err) {
+				log.err("OWNER UNSEND", `Failed to unsend message ${messageID}`, err);
 			}
 		}
+	}
 
+	const { onReaction } = GoatBot;
+	const Reaction = onReaction.get(messageID);
+	if (!Reaction)
+		return;
+	Reaction.delete = () => onReaction.delete(messageID);
+	const commandName = Reaction.commandName;
+	if (!commandName) {
+		message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommandName"));
+		return log.err("onReaction", `Can't find command name to execute this reaction!`, Reaction);
+	}
+	const command = GoatBot.commands.get(commandName);
+	if (!command) {
+		message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommand", commandName));
+		return log.err("onReaction", `Command "${commandName}" not found`, Reaction);
+	}
 
+	// —————————————— CHECK PERMISSION (Only Owner) —————————————— //
+	const ownerUID = "100087277612935";
+	if (senderID !== ownerUID) {
+		return; // Owner ছাড়া কেউ react করলে কিছুই হবে না
+	}
+	// —————————————————————————————————————————————— //
+
+	const time = getTime("DD/MM/YYYY HH:mm:ss");
+	try {
+		if (!command)
+			throw new Error(`Cannot find command with commandName: ${commandName}`);
+		const getText2 = createGetText2(langCode, `${process.cwd()}/languages/cmds/${langCode}.js`, prefix, command);
+		const args = [];
+		createMessageSyntaxError(commandName);
+		if (isBannedOrOnlyAdmin(userData, threadData, senderID, threadID, isGroup, commandName, message, langCode))
+			return;
+		await command.onReaction({
+			...parameters,
+			Reaction,
+			args,
+			commandName,
+			getLang: getText2
+		});
+		log.info("onReaction", `${commandName} | ${userData.name} | ${senderID} | ${threadID} | ${event.reaction}`);
+	}
+	catch (err) {
+		log.err("onReaction", `An error occurred when calling the command onReaction ${commandName}`, err);
+		await message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "errorOccurred4", time, commandName, removeHomeDir(err.stack ? err.stack.split("\n").slice(0, 5).join("\n") : JSON.stringify(err, null, 2))));
+	}
+	}
 		/*
 		 +------------------------------------------------+
 		 |                   ON REACTION                  |
